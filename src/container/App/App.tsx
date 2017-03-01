@@ -1,11 +1,8 @@
 import * as React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import './App.css';
 import AppBar from 'material-ui/AppBar';
 import AddTodo from '../../component/addTodo/addTodo';
 import TodoList from '../../component/todoList/todoList';
-
-
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export class App extends React.Component<any, any> {
  
@@ -16,12 +13,11 @@ export class App extends React.Component<any, any> {
     render() {
         return (
            <MuiThemeProvider>
-               <div >
+               <div>
                     <AppBar title="todoApp" />
                     <AddTodo  />
                     <TodoList  />
-               </div>
-                                                    
+               </div>                                 
           </MuiThemeProvider>
         )
     }

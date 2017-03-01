@@ -1,5 +1,5 @@
 import * as React from 'react';
-import AutoComplete from 'material-ui/AutoComplete';
+import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import './addTodo.css';
 
@@ -7,26 +7,19 @@ import './addTodo.css';
 export class AddTodo extends React.Component<any, any> {
   constructor() {
         super();
-         this.state = {
-              dataSource: [],
+        this.state = {
               todoDescription : ""
-              todoList : [];
             }
-        this.addTodo = this.addTodo.bind(this);
+        this.addTodo =this.addTodo.bind(this);
     }
 
   addTodo(){
-    this.state.todoList.push(;
+      console.log(this.state.todoDescription)
   }
 
-  handleUpdateInput = (value : string) => {
+  handleUpdateInput(event : any){
     this.setState({
-      dataSource: [
-        value,
-        value + value,
-        value + value + value,
-      ],
-      todoDescription : value
+     todoDescription: event.target.value
     });
   };
   
@@ -35,19 +28,15 @@ export class AddTodo extends React.Component<any, any> {
             <div style={{
                         textAlign : 'center',
                         margin: '0 auto'}}>
-                            <form>
-                                    <AutoComplete
-                                        hintText="Type Todo"
-                                        dataSource={this.state.dataSource}
-                                        onUpdateInput={this.handleUpdateInput}
-
-                                        />
+                                    <TextField
+                                      hintText="Hint Text"
+                                      floatingLabelText="Floating Label Text"
+                                      onChange={this.handleUpdateInput.bind(this)}
+                                    />
                                     <RaisedButton label="Add Todo" primary={true} onClick={this.addTodo}  />
-                                        
-                                </form>
             </div>
     );
   }
 }
 
-export default <AddTodo todos={this.state.todoList} />;
+export default AddTodo;
