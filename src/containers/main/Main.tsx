@@ -4,7 +4,7 @@ import {AddTodo, TodoList} from '../../components';
 import { connect } from "react-redux";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TodoAction from '../../store/actions/TodoAction';
-
+import './Main.css';
 
 function mapStateToProps(state : any) {
     return {

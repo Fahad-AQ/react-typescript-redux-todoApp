@@ -10,7 +10,7 @@ import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
 import Checkbox from 'material-ui/Checkbox';
 import RaisedButton from 'material-ui/RaisedButton';
-
+import './TodoItems.css';
 export class TodoList extends React.Component<any, any> {
 
   constructor(props : any) {
@@ -95,7 +95,7 @@ renderDisplayTodo(){
                                         </IconButton>
                                 }>
                                     {this.props.todo.completed ? null : <MenuItem onClick={this.toggleTodo}>Completed</MenuItem>}
-                                    <MenuItem onClick={this.editTodo}>Edit</MenuItem>
+                                    {this.props.todo.completed ? null : <MenuItem onClick={this.editTodo}>Edit</MenuItem>}
                                     <MenuItem onClick={this.deleteTodo}>Delete</MenuItem>
                                 </IconMenu>                              
                     } /> 
