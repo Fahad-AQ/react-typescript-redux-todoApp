@@ -5,6 +5,7 @@ import './AddTodo.css';
 
 
 export class AddTodo extends React.Component<any, any> {
+  
   constructor() {
         super();
         this.state = {
@@ -15,19 +16,29 @@ export class AddTodo extends React.Component<any, any> {
     }
   
     
- handlerInput(e: any) {
-        this.setState({
-            todoDescription : e.target.value
-        });
+    handlerInput(e: any) {    
+         if(e.key == 'Enter'){
+           this.addTodo();
+         }
+         else{
+           this.setState({
+                todoDescription : e.target.value
+            });
+         }
+       
+        
     }
-  addTodo() : void{
-    console.log(this.state.todoDescription);
-    this.props.addTodoEvent(this.state.todoDescription);
-    this.setState({
-                todoDescription: ""
-            })
-  }
 
+    addTodo(){
+      console.log(this.state.todoDescription);
+      this.props.addTodoEvent(this.state.todoDescription);
+      this.setState({
+                  todoDescription: ""
+              })
+    }
+  
+  
+  
   render() {
     return (
             <div style={{
@@ -38,6 +49,7 @@ export class AddTodo extends React.Component<any, any> {
                                       floatingLabelText="Todo"
                                       onChange={this.handlerInput}
                                       value={this.state.todoDescription}
+                                      onKeyDown={this.handlerInput}
                                     />
                                     &nbsp;
                                     <RaisedButton label="Add Todo" primary={true} onClick={this.addTodo} disabled={this.state.todoDescription == ""} />
@@ -45,5 +57,6 @@ export class AddTodo extends React.Component<any, any> {
     );
   }
 }
+
 
 export default AddTodo;

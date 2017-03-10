@@ -14,6 +14,9 @@ function mapStateToProps(state : any) {
 function mapDispatchToProps(dispatch: any) {
       return {
         addTodo: (todoText : string) : void =>  dispatch(TodoAction.addTodo(todoText)),
+        deleteTodo: (id : number ) : void =>  dispatch(TodoAction.deleteTodo(id)),
+        editedTodo: (id : number , updateTodo : string) : void =>  dispatch(TodoAction.editedTodo(id,updateTodo)),
+        toggleTodo: (id : number ) : void =>  dispatch(TodoAction.toggleTodo(id))
     };
 }
 
@@ -26,16 +29,14 @@ export class Main extends React.Component<any, any> {
     }
     
  
- handleTouchTap(e : any) {
-    console.log("touchTap", e);
-  }
     render() {
+        
         return (
            <MuiThemeProvider >
                <div >
                     <AppBar title="todoApp" />
                     <AddTodo addTodoEvent={this.props.addTodo} />
-                    <TodoList todoObj={this.props.todoState.todo} />
+                    <TodoList todoObj={this.props.todoState.todo} deleteTodo={this.props.deleteTodo} editedTodo={this.props.editedTodo} toggleTodo={this.props.toggleTodo} />
                </div>                                 
           </MuiThemeProvider>
         )

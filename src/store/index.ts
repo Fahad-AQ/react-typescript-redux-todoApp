@@ -1,21 +1,19 @@
-import { createStore } from 'redux'
-import { combineReducers } from 'redux';
-
+import { combineReducers, createStore} from 'redux';
+import TodoReducer from './reducers/TodoReducer';
+// Application State IAppState
 interface IAppState {
-    TodoReducer : any
+    TodoReducer :any
 }
 
-import TodoReducer from './reducers/TodoReducer';
-
-export const rootReducer = combineReducers<IAppState>({
+const rootReducer = combineReducers<IAppState>({
     TodoReducer
-// more reducers go here
-})
+});
 
-let store = createStore(rootReducer)
+export let store = createStore(rootReducer);
 
 store.subscribe(() =>
   console.log(store.getState())
 );
 
-export default store;
+
+
