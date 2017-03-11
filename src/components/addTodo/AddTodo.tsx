@@ -18,7 +18,9 @@ export class AddTodo extends React.Component<any, any> {
     
     handlerInput(e: any) {    
          if(e.key == 'Enter'){
-           this.addTodo();
+           if(this.state.todoDescription){
+             this.addTodo();
+           }         
          }
          else{
            this.setState({

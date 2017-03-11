@@ -30,7 +30,9 @@ export class TodoList extends React.Component<any, any> {
     
    onTodoTextChange(e: any) {    
          if(e.key == 'Enter'){
-           this.editedTodo();
+             if(this.state.todo){
+                  this.editedTodo();
+             }      
          }
          else{
            this.setState({
