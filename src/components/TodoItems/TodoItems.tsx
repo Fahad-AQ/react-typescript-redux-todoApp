@@ -30,9 +30,7 @@ export class TodoList extends React.Component<any, any> {
     
    onTodoTextChange(e: any) {    
          if(e.key == 'Enter'){
-             if(this.state.todo){
-                  this.editedTodo();
-             }      
+                this.editedTodo();
          }
          else{
            this.setState({
@@ -50,11 +48,12 @@ export class TodoList extends React.Component<any, any> {
   }
 
   editedTodo(){
-       this.props.editedTodo(this.props.todo.id,this.state.todo);
-       this.setState({
-                  doEdit: false,
-              })          
-
+       if(this.state.todo){
+               this.props.editedTodo(this.props.todo.id,this.state.todo);
+               this.setState({
+                            doEdit: false,
+                        })   
+             }   
   }
   
    toggleTodo(e : any){
@@ -128,6 +127,7 @@ renderDisplayTodo(){
                         <RaisedButton 
                         label="Edited" 
                         primary={true} 
+                        disabled={this.state.todo == ""}
                         onClick={this.editedTodo} 
                         /> 
               </div>

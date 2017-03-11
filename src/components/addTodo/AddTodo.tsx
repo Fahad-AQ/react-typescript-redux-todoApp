@@ -17,10 +17,8 @@ export class AddTodo extends React.Component<any, any> {
   
     
     handlerInput(e: any) {    
-         if(e.key == 'Enter'){
-           if(this.state.todoDescription){
-             this.addTodo();
-           }         
+         if(e.key == 'Enter'){        
+             this.addTodo();            
          }
          else{
            this.setState({
@@ -32,11 +30,14 @@ export class AddTodo extends React.Component<any, any> {
     }
 
     addTodo(){
+      if(this.state.todoDescription){
       console.log(this.state.todoDescription);
       this.props.addTodoEvent(this.state.todoDescription);
       this.setState({
                   todoDescription: ""
               })
+      }
+     
     }
   
   
