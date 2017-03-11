@@ -95,8 +95,7 @@ renderDisplayTodo(){
                                             <MoreVertIcon color={grey400} />
                                         </IconButton>
                                 }>
-                                    {this.props.todo.completed ? null : <div><MenuItem onClick={this.toggleTodo}>Completed</MenuItem><MenuItem onClick={this.editTodo}>Edit</MenuItem></div>}
-                                    <MenuItem onClick={this.deleteTodo}>Delete</MenuItem>
+                                    {this.props.todo.completed ? <MenuItem onClick={this.deleteTodo}>Delete</MenuItem> : <div><MenuItem onClick={this.toggleTodo}>Completed</MenuItem><MenuItem onClick={this.editTodo}>Edit</MenuItem></div>}               
                                 </IconMenu>                              
                     } /> 
                 <Divider />
