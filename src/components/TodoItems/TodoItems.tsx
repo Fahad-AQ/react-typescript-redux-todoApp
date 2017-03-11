@@ -58,7 +58,8 @@ export class TodoList extends React.Component<any, any> {
    toggleTodo(e : any){
     console.log(e.target.value);
     console.log(e.target.checked);
-    this.props.toggleTodo(this.props.todo.id);
+            this.props.toggleTodo(this.props.todo.id);
+    
   }
   
   
@@ -94,8 +95,7 @@ renderDisplayTodo(){
                                             <MoreVertIcon color={grey400} />
                                         </IconButton>
                                 }>
-                                    {this.props.todo.completed ? null : <MenuItem onClick={this.toggleTodo}>Completed</MenuItem>}
-                                    {this.props.todo.completed ? null : <MenuItem onClick={this.editTodo}>Edit</MenuItem>}
+                                    {this.props.todo.completed ? null : <div><MenuItem onClick={this.toggleTodo}>Completed</MenuItem><MenuItem onClick={this.editTodo}>Edit</MenuItem></div>}
                                     <MenuItem onClick={this.deleteTodo}>Delete</MenuItem>
                                 </IconMenu>                              
                     } /> 

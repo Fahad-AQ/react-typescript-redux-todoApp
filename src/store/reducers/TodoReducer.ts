@@ -19,7 +19,6 @@ interface IAction {
 }
 
 function TodoReducer(state : IState = INITIAL_STATE, action: IAction) {
-   let items : Array<object> = [];
    switch (action.type) {
    case TodoAction.ADD_TODO: 
     const newState : IState = Object.assign({}, state );
@@ -36,7 +35,7 @@ function TodoReducer(state : IState = INITIAL_STATE, action: IAction) {
     return newState2;
     
   case TodoAction.EDITED_TODO:
-    items = state.todo.todoList.map((todo :any)=> {
+   const items = state.todo.todoList.map((todo :any)=> {
       return todo.id === action.payload.id ?{...todo, text:action.payload.updatetext}: todo;
     })  
     return Object.assign({}, state ,{ todo : {
@@ -44,11 +43,11 @@ function TodoReducer(state : IState = INITIAL_STATE, action: IAction) {
     }});
     
     case TodoAction.TOGGLE_TODO:
-    items = state.todo.todoList.map((todo :any)=> {
+    const items2 = state.todo.todoList.map((todo :any)=> {
       return todo.id === action.payload.id ?{...todo, completed: !todo.completed}: todo;
     })  
     return Object.assign({}, state ,{ todo : {
-       todoList :items
+       todoList :items2
     }});
 
 

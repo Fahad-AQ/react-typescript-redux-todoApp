@@ -18,7 +18,7 @@ export class TodoList extends React.Component<any, any> {
       this.props.editedTodo(id,updatedTodo);
    }
     toggleTodoItem (id : number){
-      this.props.toggleTodo(id);
+            this.props.toggleTodo(id);
    }
 
 
