@@ -24,11 +24,11 @@ export class TodoList extends React.Component<any, any> {
        this.deleteTodo = this.deleteTodo.bind(this);
        this.editTodo = this.editTodo.bind(this);
        this.editedTodo = this.editedTodo.bind(this);
-       this.onTodoTextChange = this.onTodoTextChange.bind(this);
+       this.handlerInput = this.handlerInput.bind(this);
        this.toggleTodo = this.toggleTodo.bind(this);
     }
     
-   onTodoTextChange(e: any) {    
+   handlerInput(e: any) {    
          if(e.key == 'Enter'){
                 this.editedTodo();
          }
@@ -118,8 +118,8 @@ renderDisplayTodo(){
                             value={this.state.todo}
                             hintText="Edit Todo"
                             floatingLabelText="Edit Todo"
-                            onChange={this.onTodoTextChange}
-                            onKeyDown={this.onTodoTextChange}
+                            onChange={this.handlerInput}
+                            onKeyDown={this.handlerInput}
                             fullWidth={true}
                             style={editedTodoStyle}
                             
